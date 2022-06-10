@@ -1,0 +1,25 @@
+ideas :
+understand events, tracks, info_data, stats
+1. approached with simple cases like position of referee and the ball
+2. data augmentation
+3. realised that ball is not tracked all the time
+4. corners are tracked 
+5. closest events
+
+possible ML approches tried:
+1. single image based approaches: time stamp closest to the kick did not have a ball , the player was not closest to the corner
+2. video_instance segmentation, multiview image based approach: felt it might be a overkill, (window size might be hard to set, the ball sometimes goes missing for around 1000 frames around corner kicks)
+3. approach it as a tabular problem and solve with decision tree, using gradient boosting
+    1. feature selection intiution: 
+        1.ball is crucial
+        2.refreee position may be give a clue
+        3.player location individually may not be the best approach, but a feature with net distance between players in e
+        4.gravity metric distance from penalty spot
+        5.first man last man, left most right most
+        6.total people visible on field on both sides
+    2.refree's whistle would have been very useful in some form as a feature
+problems faced:
+1. timezone alteration to find the closest frame to the corner kick
+2. dataset balancing
+3. corner setup time
+4. selecting important features
